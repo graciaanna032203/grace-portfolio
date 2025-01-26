@@ -124,26 +124,52 @@ export default function Home() {
             <Image
               src="/me.jpg"
               alt="Grace Image"
-              width={600}  
-              height={600} 
+              width={600}
+              height={600}
               className="rounded-[5px] shadow-lg object-cover w-full h-full"
             />
           </div>
 
           {/* Left Side: Text Content */}
           <div className="flex flex-col space-y-6 max-w-xl text-center lg:text-left lg:w-1/2">
-            <p className={`text-2xl font-bold text-[#ffffff] tracking-wider ${archivo.className}`}> Hello, I’m</p> 
-            <p className={`text-4xl font-bold text-[#ffffff] tracking-wider ${archivo.className}`}> Grace Anne Garchitorena</p>
+            <p
+              className={`text-2xl font-bold text-[#ffffff] tracking-wider ${archivo.className}`}
+            >
+              Hello, I’m
+            </p>
+            <p
+              className={`text-4xl font-bold text-[#ffffff] tracking-wider ${archivo.className}`}
+            >
+              Grace Anne Garchitorena
+            </p>
             <p className={`text-3xl tracking-wider ${archivo.className}`}>
               <span className="text-white">Aspiring </span>
               <span className="text-[#FF6500]">Web Developer</span>
             </p>
 
-            <p className={`text-base text-[#ffffff] tracking-wider ${inter.className}`}>
-            I am a 4th-year Computer Science student passionate about creating
+            <p className={`text-md text-[#ffffff] tracking-wider ${inter.className}`}>
+              I am a 4th-year Computer Science student passionate about creating
               user-friendly and innovative web solutions. I love turning ideas into
               functional and seamless digital experiences.
             </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-9">
+              <a
+                href="#contact"
+                className="px-6 py-4 bg-[#FF6500] text-white font-bold rounded-[5px] shadow-md hover:scale-95 active:scale-95 transition-transform duration-300"
+              >
+                Contact Me
+              </a>
+              <a
+                href="/Resume-Garchitorena, Grace Anne C.pdf"
+                download
+                className="px-6 py-4 bg-transparent text-white border-2 border-[#FF6500] font-bold rounded-[5px] shadow-md hover:scale-95 active:scale-95 transition-transform duration-300"
+              >
+                Download Resume
+              </a>
+            </div>
+
           </div>
         </section>
 
