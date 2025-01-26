@@ -16,7 +16,7 @@ const archivo = Archivo({
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
-  const [manualScroll, setManualScroll] = useState(false); // Track if scrolling is manual 
+  const [manualScroll, setManualScroll] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
 
@@ -64,7 +64,7 @@ export default function Home() {
 
 
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 gap-16 sm:p-9" 
+    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-16 sm:p-9" 
     style={{
       background: "var(--gradient)",
       backdropFilter: "var(--glass-blur)",
@@ -75,14 +75,14 @@ export default function Home() {
     }}>
       {/* Navbar */}
         <nav
-          className={`-mt-20 sticky top-1 z-50 flex justify-between items-center w-full p-4 max-w-screen-xl mx-auto transition-all duration-300${
+          className={`-mt-20 sticky top-1 z-50 flex justify-between items-center w-full  max-w-screen-xl mx-auto transition-all duration-300${
             isScrolled
               ? "bg-white/30 backdrop-blur-lg border border-white/20 shadow-md rounded-[5px]"
               : "bg-transparent border border-transparent"
           }`}
         >
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center pl-4">
             <a href="#home">
               <Image
                 src="/logo.png"
@@ -94,7 +94,7 @@ export default function Home() {
           </div>
 
           {/* Navigation links */}
-          <div className="flex space-x-8 text-s font-normal tracking-wide">
+          <div className="flex space-x-5 text-s font-normal tracking-wide pr-4">
             {["home", "about", "skills", "projects", "contact"].map((section) => (
               <a
                 key={section}
@@ -149,17 +149,17 @@ export default function Home() {
             I’m a 4th-year Computer Science student focused on creating user-friendly, innovative web solutions.</p>
 
             {/* Buttons */}
-            <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-9">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-9 ">
               <a
                 href="#contact"
-                className="px-6 py-4 bg-[#FF6500] text-white font-bold rounded-[5px] shadow-md hover:scale-95 active:scale-95 transition-transform duration-300"
-              >
+                className={`px-6 py-4 bg-[#FF6500] text-white tracking-wider ${inter.className} rounded-[5px] shadow-md hover:scale-95 active:scale-95 transition-transform duration-300`}
+                >
                 Contact Me
               </a>
               <a
                 href="/Resume-Garchitorena, Grace Anne C.pdf"
                 download
-                className="px-6 py-4 bg-transparent text-white border-2 border-[#FF6500] font-bold rounded-[5px] shadow-md hover:scale-95 active:scale-95 transition-transform duration-300"
+                className={`px-6 py-4 bg-transparent text-white tracking-wider ${inter.className} border-2 border-[#FF6500] font-bold rounded-[5px] shadow-md hover:scale-95 active:scale-95 transition-transform duration-300`}
               >
                 Download Resume
               </a>
@@ -302,7 +302,7 @@ export default function Home() {
         {/* Projects Section */}
         <section
           id="projects"
-          className="w-full max-w-screen-xl mx-auto min-h-screen flex flex-col items-center justify-center bg-gray-100 p-8 rounded-[5px]"
+          className="w-full max-w-screen-xl mx-auto min-h-screen flex flex-col items-center justify-center p-8 rounded-[5px]"
         >
           <h2 className="text-4xl">Projects</h2>
           <p>Check out the Projects section for details on the work I’ve done.</p>
