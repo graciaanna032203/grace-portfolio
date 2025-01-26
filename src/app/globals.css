@@ -41,8 +41,3 @@ body {
   background: var(--background);
   font-family: 'Inter', Arial, Helvetica, sans-serif;
 } 
- 
-p {
-  font-size: 1rem; /* Equivalent to text-base */
-  color: var(--paragraph);
-}

@@ -16,7 +16,9 @@ const archivo = Archivo({
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
-  const [manualScroll, setManualScroll] = useState(false); // Track if scrolling is manual
+  const [manualScroll, setManualScroll] = useState(false); // Track if scrolling is manual 
+  const [isScrolled, setIsScrolled] = useState(false);
+
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -36,13 +38,30 @@ export default function Home() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [manualScroll]); // Re-run when manualScroll changes
+  }, [manualScroll]); 
 
   const handleClick = (section) => {
-    setManualScroll(true); // Disable automatic scrolling temporarily
-    setActiveSection(section); // Set the active section manually
-    setTimeout(() => setManualScroll(false), 1000); // Re-enable automatic scrolling after a delay
-  };
+    setManualScroll(true); 
+    setActiveSection(section); 
+    setTimeout(() => setManualScroll(false), 1000); 
+  }; 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 gap-16 sm:p-9" 
@@ -55,38 +74,43 @@ export default function Home() {
       boxShadow: "var(--box-shadow)",
     }}>
       {/* Navbar */}
-      <nav className="-mt-20 sticky top-1 z-50 flex justify-between items-center w-full p-4 max-w-screen-xl mx-auto">
-      {/* Logo */}
-        <div className="flex items-center">
-          <a href="#home">
-            <Image
-              src="/logo.png"
-              alt="Grace Portfolio Logo"
-              width={70}
-              height={70}
-            />
-          </a>
-        </div>
-
-        {/* Navigation links */}
-        <div className="flex space-x-8 text-s font-normal tracking-wide">
-          {["home", "about", "skills", "projects", "contact"].map((section) => (
-            <a
-              key={section}
-              href={`#${section}`}
-              onClick={() => handleClick(section)}
-              className={`${inter.className} ${
-                activeSection === section
-                  ? "text-[#FF6500] border-b-2 border-[#ffffff]"
-                  : "text-white hover:text-[#FF6500] border-b-2 border-transparent"
-              } transition-all pb-[2px]`}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
+        <nav
+          className={`-mt-20 sticky top-1 z-50 flex justify-between items-center w-full p-4 max-w-screen-xl mx-auto transition-all duration-300${
+            isScrolled
+              ? "bg-white/30 backdrop-blur-lg border border-white/20 shadow-md rounded-[5px]"
+              : "bg-transparent border border-transparent"
+          }`}
+        >
+          {/* Logo */}
+          <div className="flex items-center">
+            <a href="#home">
+              <Image
+                src="/logo.png"
+                alt="Grace Portfolio Logo"
+                width={70}
+                height={70}
+              />
             </a>
-          ))}
-        </div>
-      </nav>
+          </div>
 
+          {/* Navigation links */}
+          <div className="flex space-x-8 text-s font-normal tracking-wide">
+            {["home", "about", "skills", "projects", "contact"].map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                onClick={() => handleClick(section)}
+                className={`${inter.className} ${
+                  activeSection === section
+                    ? "text-[#FF6500] border-b-2 border-[#ffffff]"
+                    : "text-white hover:text-[#FF6500] border-b-2 border-transparent"
+                } transition-all pb-[2px]`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            ))}
+          </div>
+        </nav>
 
       {/* Main content */}
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-screen-xl mx-auto">
@@ -126,7 +150,7 @@ export default function Home() {
         {/* About Section */}
         <section
           id="about"
-          className="w-full max-w-screen-xl mx-auto min-h-screen flex flex-col items-center justify-center bg-gray-100 p-8 rounded-[5px]"
+          className="w-full max-w-screen-xl mx-auto min-h-screen flex flex-col items-center justify-center p-8 rounded-[5px]"
         >
           <h2 className="text-4xl">About Me</h2>
           <p>This is the About section where I talk about my background and experience.</p>
