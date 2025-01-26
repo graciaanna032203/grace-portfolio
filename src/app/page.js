@@ -137,9 +137,7 @@ export default function Home() {
             >
               Hello, I’m
             </p>
-            <p
-              className={`text-4xl font-bold text-[#ffffff] tracking-wider ${archivo.className}`}
-            >
+            <p className={`text-4xl font-bold text-[#ffffff] tracking-wider ${archivo.className}`}>
               Grace Anne Garchitorena
             </p>
             <p className={`text-3xl tracking-wider ${archivo.className}`}>
@@ -148,10 +146,7 @@ export default function Home() {
             </p>
 
             <p className={`text-md text-[#ffffff] tracking-wider ${inter.className}`}>
-              I am a 4th-year Computer Science student passionate about creating
-              user-friendly and innovative web solutions. I love turning ideas into
-              functional and seamless digital experiences.
-            </p>
+            I’m a 4th-year Computer Science student focused on creating user-friendly, innovative web solutions.</p>
 
             {/* Buttons */}
             <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-9">
@@ -176,19 +171,132 @@ export default function Home() {
         {/* About Section */}
         <section
           id="about"
-          className="w-full max-w-screen-xl mx-auto min-h-screen flex flex-col items-center justify-center p-8 rounded-[5px]"
+          className="w-full max-w-screen-xl mx-auto min-h-screen flex flex-col lg:flex-row items-center justify-between p-8 rounded-[5px]"
         >
-          <h2 className="text-4xl">About Me</h2>
-          <p>This is the About section where I talk about my background and experience.</p>
+          {/* Left Side: Text Content */}
+          <div className="lg:w-1/2 text-center lg:text-left">
+            <p
+              className={`text-4xl font-bold text-[#ffffff] tracking-wider ${archivo.className} border-b-4 border-[#FF6500] pb-2`}
+            >
+              About Me
+            </p> 
+
+            <p className={`mt-6 text-[#ffffff] tracking-wider ${inter.className}`}>
+              Hello, I’m Grace Anne Garchitorena, an aspiring Web Developer and a 4th-year Computer Science student.  
+              I’m passionate about creating simple, user-friendly web solutions that make a difference.  
+              I enjoy turning ideas into functional digital experiences and am always looking for ways to learn and grow in the field.
+            </p> 
+
+            <p className="mt-4">Education <span className="text-[#FF6500] ml-8">Technological University of the Philippines - Manila</span></p> 
+
+            <p className="mt-4 ml-28">BS in Computer Science (Sept 2021 - Sept 2025)</p>
+          </div>
+
+          {/* Right Side: Image */}
+          <div className="lg:w-1/2 mt-8 lg:mt-0">
+            <Image
+              src="/me.jpg"
+              alt="Grace Image"
+              width={600}
+              height={600}
+              className="rounded-[5px] shadow-lg object-cover w-full h-full"
+            />
+          </div>
         </section>
 
         {/* Skills Section */}
         <section
           id="skills"
-          className="w-full max-w-screen-xl mx-auto min-h-screen flex flex-col items-center justify-center bg-gray-100 p-8 rounded-[5px]"
+          className="w-full max-w-screen-xl mx-auto min-h-screen flex flex-col items-center justify-center p-8 rounded-[5px]"
         >
-          <h2 className="text-4xl">Skills</h2>
-          <p>Here, I list my technical skills, tools, and technologies I am proficient in.</p>
+          <p
+            className={`text-4xl font-bold text-[#ffffff] tracking-wider ${archivo.className} border-b-4 border-[#FF6500] pb-2`}
+          >
+            Skills
+          </p>
+
+          {/* Icon with Name */}
+          <div className="flex flex-col items-center mt-6">
+            {/* Wrapper for Responsive Layouts */}
+            <div
+              className="grid justify-items-center items-center gap-6 
+                lg:grid-cols-[repeat(6,_1fr)] lg:gap-x-8 lg:gap-y-10 
+                md:grid-cols-3 grid-cols-2"
+            >
+              {/* HTML */}
+              <div className="flex flex-col items-center">
+                <img src="/html.svg" alt="HTML Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>HTML</p>
+              </div>
+
+              {/* CSS3 */}
+              <div className="flex flex-col items-center">
+                <img src="/css3.svg" alt="CSS3 Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>CSS3</p>
+              </div>
+
+              {/* JavaScript */}
+              <div className="flex flex-col items-center">
+                <img src="/javascript.svg" alt="JavaScript Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>JavaScript</p>
+              </div>
+
+              {/* TypeScript */}
+              <div className="flex flex-col items-center">
+                <img src="/typescript.svg" alt="TypeScript Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>TypeScript</p>
+              </div>
+
+              {/* React */}
+              <div className="flex flex-col items-center">
+                <img src="/react.svg" alt="React Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>React</p>
+              </div>
+
+              {/* Python */}
+              <div className="flex flex-col items-center">
+                <img src="/python.svg" alt="Python Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>Python</p>
+              </div>
+
+              {/* C */}
+              <div className="flex flex-col items-center">
+                <img src="/c.svg" alt="C Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>C</p>
+              </div>
+
+              {/* C++ */}
+              <div className="flex flex-col items-center">
+                <img src="/cpp.svg" alt="C++ Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>C++</p>
+              </div>
+
+              {/* Tailwind */}
+              <div className="flex flex-col items-center">
+                <img src="/tailwindcss.svg" alt="Tailwind CSS Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>Tailwind</p>
+              </div> 
+
+              {/* Figma */}
+              <div className="flex flex-col items-center">
+                <img src="/figma.svg" alt="GitHub Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>Figma</p>
+              </div>
+
+              {/* Vercel */}
+              <div className="flex flex-col items-center">
+                <img src="/vercel.svg" alt="Vercel Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>Vercel</p>
+              </div>
+
+              {/* GitHub */}
+              <div className="flex flex-col items-center">
+                <img src="/github.svg" alt="GitHub Icon" className="w-14 h-14" />
+                <p className={`text-[#ffffff] mt-2 tracking-wider ${inter.className}`}>GitHub</p>
+              </div>  
+
+            </div>
+          </div>
         </section>
 
         {/* Projects Section */}
